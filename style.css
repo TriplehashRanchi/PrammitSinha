@@ -32,6 +32,10 @@ body {
   min-height: 100vh;
 }
 
+.mobile-sticky-cta {
+  display: none;
+}
+
 /* Ambient Background Glow */
 .ambient-glow {
   position: fixed;
@@ -2060,6 +2064,43 @@ body {
 }
 
 @media (max-width: 600px) {
+  body {
+    padding-bottom: 96px;
+  }
+
+  .mobile-sticky-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    padding: 10px 14px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(15, 3, 24, 0.96);
+    border-radius: 18px 18px 0 0;
+    border-top: none;
+    box-shadow: none;
+    backdrop-filter: none;
+  }
+
+  .mobile-sticky-cta .cta-button {
+    width: 100%;
+    max-width: 360px;
+    padding: 6px;
+  }
+
+  .mobile-sticky-cta .cta-inner {
+    padding: 12px 14px;
+    border-radius: 15px;
+  }
+
+  .mobile-sticky-cta .cta-text {
+    font-size: 0.82rem;
+    line-height: 1.25;
+    letter-spacing: 0.7px;
+  }
+
   .section-two {
     margin: 3rem auto 3.5rem auto;
     padding: 1.5rem 1rem;
