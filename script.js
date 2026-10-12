@@ -1,11 +1,21 @@
 // Script for Section 1 — Hero
 
 document.addEventListener('DOMContentLoaded', () => {
-    // Placeholder click handler for VSL Video
-    const vslPlaceholder = document.getElementById('vslPlaceholder');
-    if (vslPlaceholder) {
-        vslPlaceholder.addEventListener('click', () => {
-            console.log('VSL Video clicked');
+    const vslWrapper = document.querySelector('.vsl-iframe-wrapper');
+    const vslVideo = document.querySelector('.vsl-iframe');
+    const vslPlayButton = document.querySelector('.vsl-overlay-play');
+
+    if (vslWrapper && vslVideo && vslPlayButton) {
+        vslPlayButton.addEventListener('click', () => {
+            vslVideo.play();
+        });
+
+        vslVideo.addEventListener('play', () => {
+            vslWrapper.classList.add('is-playing');
+        });
+
+        vslVideo.addEventListener('ended', () => {
+            vslWrapper.classList.remove('is-playing');
         });
     }
 
