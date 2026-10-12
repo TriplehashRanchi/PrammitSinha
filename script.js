@@ -19,6 +19,33 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    document.querySelectorAll('.testimonial-video-wrapper').forEach((wrapper) => {
+        const video = wrapper.querySelector('.testimonial-video');
+        const playButton = wrapper.querySelector('.testimonial-overlay-play');
+
+        if (!video || !playButton) {
+            return;
+        }
+
+        playButton.addEventListener('click', () => {
+            video.play();
+        });
+
+        video.addEventListener('play', () => {
+            wrapper.classList.add('is-playing');
+        });
+
+        video.addEventListener('pause', () => {
+            if (!video.ended) {
+                wrapper.classList.remove('is-playing');
+            }
+        });
+
+        video.addEventListener('ended', () => {
+            wrapper.classList.remove('is-playing');
+        });
+    });
+
     const mediaQuery = window.matchMedia('(max-width: 600px)');
     const marqueeContainer = document.querySelector('.media-image-marquee-container');
     const marqueeTrack = document.querySelector('.media-image-marquee-track');
