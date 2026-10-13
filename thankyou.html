@@ -27,7 +27,23 @@
         s.parentNode.insertBefore(t,s)}(window, document,'script',
         'https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '726718726244956');
-        fbq('track', 'Purchase');
+
+        const purchaseEventId = `purchase-${Date.now()}-${Math.random().toString(36).slice(2)}`;
+        const purchasePayload = {
+            event_id: purchaseEventId,
+            event_source_url: window.location.href,
+            fbp: (document.cookie.match(/(?:^|;\s*)_fbp=([^;]+)/) || [])[1] || null,
+            fbc: (document.cookie.match(/(?:^|;\s*)_fbc=([^;]+)/) || [])[1] || null
+        };
+
+        fbq('track', 'Purchase', {}, { eventID: purchaseEventId });
+
+        fetch('/api/meta-capi-purchase', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(purchasePayload),
+            keepalive: true
+        }).catch(() => {});
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=726718726244956&ev=Purchase&noscript=1"
