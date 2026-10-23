@@ -196,7 +196,7 @@ body {
   transform: translateX(-50%);
   width: fit-content;
   max-width: 90%;
-  font-size: 0.85rem;
+  font-size: 0.76rem;
   font-weight: 600;
   letter-spacing: 1px;
   color: var(--color-gold);
@@ -241,6 +241,12 @@ body {
 .highlight-mentor-bg {
   color: #fde68a;
   font-weight: 700;
+}
+
+.highlight-mentor-bg-lite {
+  font-size: 2rem;
+  color: #f6f4ed;
+  font-weight: 500;
 }
 
 /* Description */
@@ -485,8 +491,12 @@ body {
 
   .main-headline {
     margin-bottom: 20px;
-    font-size: 1.55rem;
+    font-size: 1.35rem;
     line-height: 1.22;
+  }
+
+  .highlight-mentor-bg-lite {
+  font-size: 1.1rem;
   }
 
   .hero-description {
