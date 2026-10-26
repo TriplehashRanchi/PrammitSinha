@@ -891,6 +891,9 @@ body {
   left: 12px;
   right: 12px;
   bottom: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
   padding: 8px 10px;
   border-radius: 8px;
   background: rgba(20, 8, 28, 0.78);
@@ -901,6 +904,22 @@ body {
   text-align: center;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
   backdrop-filter: blur(8px);
+}
+
+.marquee-testimonial-card .person-name {
+  display: block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.marquee-testimonial-card .person-designation {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
+  color: rgba(255, 245, 222, 0.82);
 }
 
 @keyframes mediaImageMarqueeScroll {
@@ -2274,6 +2293,14 @@ body {
     padding: 7px 8px;
     font-size: 0.78rem;
   }
+
+  .marquee-testimonial-card .person-name {
+    font-size: 0.78rem;
+  }
+
+  .marquee-testimonial-card .person-designation {
+    font-size: 0.64rem;
+  }
 }
 
 @media (max-width: 600px) {
@@ -2408,6 +2435,14 @@ body {
     padding: 6px 7px;
     border-radius: 6px;
     font-size: 0.72rem;
+  }
+
+  .marquee-testimonial-card .person-name {
+    font-size: 0.72rem;
+  }
+
+  .marquee-testimonial-card .person-designation {
+    font-size: 0.6rem;
   }
 
   .section-two-cta .cta-button {
